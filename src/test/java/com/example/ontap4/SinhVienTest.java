@@ -86,10 +86,17 @@ public class SinhVienTest {
     }
 
     @Test
-    public void timKiemSinhVien() {
-        List<SinhVien> ketQua = sinhVienService.timKiemSinhVien("SV01");
-        assertFalse(ketQua.isEmpty());
-        SinhVien sinhVien = ketQua.get(0);
+    public void timKiemSinhVien_TonTai() {
+        SinhVien sinhVien1 = new SinhVien("SV01", "Thanh", 21, 8.5f, 3, "IT");
+        sinhVienService.addSinhVien(sinhVien1);
+        SinhVien ketQua = sinhVienService.timKiemSinhVien("SV01");
+        assertNotNull(ketQua);
         assertEquals("Thanh", sinhVien.getTen());
+    }
+
+    @Test
+    public void timKiemSinhVien_KhongTonTai() {
+        SinhVien ketQua = sinhVienService.timKiemSinhVien("SV99");
+        assertNull(ketQua);
     }
 }

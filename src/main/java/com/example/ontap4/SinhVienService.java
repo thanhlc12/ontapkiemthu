@@ -42,14 +42,13 @@ public class SinhVienService {
         sinhVien.setChuyenNganh(chuyenNganh);
     }
 
-    public List<SinhVien> timKiemSinhVien(String maSV) {
-        List<SinhVien> ketQua = new ArrayList<>();
+    public SinhVien timKiemSinhVien(String maSV) {
         for (SinhVien sinhVien : list) {
             if (sinhVien.getMaSV().equalsIgnoreCase(maSV)) {
-                ketQua.add(sinhVien);
+                return sinhVien;
             }
         }
-        return ketQua;
+        return null;
     }
 
     public List<SinhVien> getListSinhVien() {
